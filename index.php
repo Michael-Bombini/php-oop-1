@@ -5,10 +5,14 @@ include "Movie.php";
 $movieUno = new Movie("Avengers: Endgame", "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg", "24/04/2019");
 $movieDue = new Movie("The Batman", "https://i.pinimg.com/736x/cf/07/64/cf07648658251eba4f94291ecfb16e56.jpg", "04/03/2022");
 $movieTre = new Movie("Back to the future", "https://static.posters.cz/image/750/poster/back-to-the-future-i2795.jpg", "18/10/1985");
+$movies = [] ;
+array_push($movies,$movieUno,$movieDue,$movieTre);
 
 
 ?>
-
+  <!-- <div class="col"><?php $movieUno->printMovieCard() ?> </div>
+    <div class="col"><?php $movieDue->printMovieCard() ?></div>
+    <div class="col"><?php $movieTre->printMovieCard() ?></div> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +28,15 @@ $movieTre = new Movie("Back to the future", "https://static.posters.cz/image/750
 <body>
 <div class="container my-4">
 <div class="row row-cols-3">
-    <div class="col"><?php $movieUno->printMovieCard() ?> </div>
-    <div class="col"><?php $movieDue->printMovieCard() ?></div>
-    <div class="col"><?php $movieTre->printMovieCard() ?></div>
+  <?php
+
+    foreach($movies as $movie){
+        echo "<div class='col'>";
+        echo $movie->printMovieCard();
+        echo "</div>";
+
+    }
+?>
 </div>
 
 
